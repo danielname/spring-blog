@@ -2,9 +2,7 @@ package com.codeup.springblog.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/coffee")
@@ -18,6 +16,12 @@ public class CoffeeController {
     @GetMapping("/{roast}")
     public String roast(@PathVariable String roast, Model model){
         model.addAttribute("roast",roast);
+        return "coffee";
+    }
+
+    @PostMapping
+    public String signup(@RequestParam(name = "email") String email, Model model){
+        model.addAttribute("email",email);
         return "coffee";
     }
 }

@@ -16,5 +16,14 @@
         <li><a href="/coffee/medium">Medium Roast</a></li>
         <li><a href="/coffee/light">Light Roast</a></li>
     </ul>
+    <div>
+        <p>Want to sign up for our newsletter? Enter your email!</p>
+        <form action="/coffee" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+    <p th:if="${email}">Thanks for your information, we sold it to china.</p>
 </body>
 </html>
