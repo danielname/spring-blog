@@ -18,12 +18,27 @@ public class Coffee {
     @Column(nullable = false, length = 50)
     private String origin;
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    private String brand;
+
     public Coffee() {
     }
 
     public Coffee(String roast, String origin) {
         this.roast = roast;
         this.origin = origin;
+    }
+    public Coffee(String roast, String origin, String brand) {
+        this.roast = roast;
+        this.origin = origin;
+        this.brand = brand;
     }
     public long getId() {
         return id;
