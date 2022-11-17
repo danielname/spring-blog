@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Coffee;
+import com.codeup.springblog.repositories.CoffeeRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/coffee")
 public class CoffeeController {
+
+    private final CoffeeRepository coffeeDao;
+
+    public CoffeeController(CoffeeRepository coffeeDao){
+        this.coffeeDao = coffeeDao;
+    }
 
     @GetMapping
     public String coffee(){

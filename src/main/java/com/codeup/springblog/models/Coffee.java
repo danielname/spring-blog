@@ -1,7 +1,21 @@
 package com.codeup.springblog.models;
 
+import com.codeup.springblog.controllers.CoffeeController;
+import com.codeup.springblog.repositories.CoffeeRepository;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "coffees")
 public class Coffee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, length = 50)
+    private long id;
+    @Column(nullable = false, length = 50)
     private String roast;
+    @Column(nullable = false, length = 50)
     private String origin;
 
     public Coffee() {
@@ -11,7 +25,13 @@ public class Coffee {
         this.roast = roast;
         this.origin = origin;
     }
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getRoast() {
         return roast;
     }
