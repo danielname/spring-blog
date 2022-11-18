@@ -31,7 +31,7 @@ public class PostController {
 
     @PostMapping("/create")
     @ResponseBody
-    public String createPost(){
+    public String createPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
         Post post = new Post(title, body);
         return "index";
     }
