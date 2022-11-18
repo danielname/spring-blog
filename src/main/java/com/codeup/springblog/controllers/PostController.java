@@ -1,35 +1,38 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Post;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/posts")
 public class PostController {
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/show/{id}")
     @ResponseBody
-    public String viewPost(@PathVariable String id){
-        return "view post at id " + id;
+    public String viewPost(@PathVariable String id, Model model){
+        model.addAttribute("id",id);
+        return "show";
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/show")
     @ResponseBody
     public String post(){
-        return "post index page";
+        return "show";
     }
 
-    @GetMapping("/posts/create")
+    @GetMapping("/show/create")
     @ResponseBody
     public String postForm(){
-        return "view the form for creating a post";
+        return "show";
     }
 
-    @PostMapping("/posts/create")
+    @PostMapping("/create")
     @ResponseBody
     public String createPost(){
-        return "create a new post";
+        Post post = new Post(title, body);
+        return "index";
     }
 }
