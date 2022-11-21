@@ -19,7 +19,7 @@ public class RollDice {
     @GetMapping("/{number}")
     public String roast(@PathVariable String number, Model model){
         model.addAttribute("number",number);
-        model.addAttribute("random",Math.ceil(Math.random()*6));
+        model.addAttribute("random", (int) Math.ceil(Math.random()*6));
         return "roll-dice";
     }
 
