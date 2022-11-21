@@ -34,15 +34,15 @@ public class PostController {
         return "posts/show";
     }
 
-    @GetMapping("/posts/show")
+    @GetMapping("/show")
     public String postOne(){
         Post post3 = new Post(3,"three","third post");
         return "posts/show";
     }
 
-    @GetMapping("/show/create")
+    @GetMapping("/create")
     public String postForm(){
-        return "/show";
+        return "/posts/show";
     }
 
     @PostMapping("/create")
