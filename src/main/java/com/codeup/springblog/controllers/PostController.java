@@ -42,7 +42,7 @@ public class PostController {
 
     @GetMapping("/create")
     public String postForm(){
-        return "/posts/show";
+        return "/posts/create";
     }
 
     @PostMapping("/create")
