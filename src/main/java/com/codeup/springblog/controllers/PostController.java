@@ -18,25 +18,25 @@ public class PostController {
 //        this.postDao = postDao;
 //    }
 
-    @GetMapping
+    @GetMapping("/index")
     public String allPosts(Model model){
         Post post1 = new Post(1, "First", "This is the first post");
-        Post post2 = new Post(1, "Second", "This is the second post");
+        Post post2 = new Post(2, "Second", "This is the second post");
         List<Post> allPosts = new ArrayList<>(List.of(post1, post2));
         model.addAttribute("allPosts",allPosts);
-        return "show";
+        return "posts/index";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/show/{id}")
     public String viewPost(@PathVariable String id, Model model){
         model.addAttribute("post.id",id);
-        return "/show";
+        return "posts/show";
     }
 
     @GetMapping("/posts/show")
     public String postOne(){
         Post post3 = new Post(3,"three","third post");
-        return "show";
+        return "posts/show";
     }
 
     @GetMapping("/show/create")
