@@ -12,7 +12,7 @@ public class Post {
     @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String body;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+//    @JoinColumn(name = "user_id")  <--this is useful for when we are using the <TABLE_NAME>_id naming convention
     private User user;
 
     public Post() {
