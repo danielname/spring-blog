@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Guess what number the die will land on:</h1>
-<h2 th:if="${number}">You seleced: <span th:text="${number}"></span>!</h2>
+<h2 th:if="${number}">You seleced: <span th:text="${num}"></span>!</h2>
 <h2 th:if="${number}">The die landed on <span th:text="${random}"></span></h2>
-<h2 th:if="${number}"><span th:if="${number} == ${random}">WINNER!!!!!!</span></h2>
-<h2 th:if="${number} != ${random}">LOSER!!!!!!</h2>
+<h2 th:if="${number}"><span th:if="${num} == ${random}">WINNER!!!!!!</span></h2>
+<h2 th:if="${num} != ${random}">LOSER!!!!!!</h2>
     <ul>
         <li><a href="/roll-dice/1">1</a></li>
         <li><a href="/roll-dice/2">2</a></li>
