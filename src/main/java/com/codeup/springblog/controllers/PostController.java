@@ -52,5 +52,16 @@ public class PostController {
         return "redirect:index";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editForm(Model model, @PathVariable long id){
+        model.addAttribute("post", postDao.getReferenceById(id)); //gkuygjkuvjkhukukkuukukuoy
+        return "/posts/edit";
+    }
+
+    @PostMapping("/create")
+    public String submitEdit(@ModelAttribute Post post){
+        postDao.save(post);
+        return "redirect:index";
+    }
 
 }
