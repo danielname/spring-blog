@@ -42,7 +42,7 @@ public class PostController {
 
     @GetMapping("/create")
     public String postForm(Model model){
-        model.addAttribute("ad", new Post());
+        model.addAttribute("post", new Post());
         return "/posts/create";
     }
 
@@ -51,4 +51,6 @@ public class PostController {
         postDao.save(post);
         return "redirect:index";
     }
+
+
 }
