@@ -29,16 +29,16 @@ public class PostController {
 
     @GetMapping("/show/{id}")
     public String viewPost(@PathVariable long id, Model model){
-        Post post = postDao.findById(id);
-        model.addAttribute("post.id",id);
+//        Post post = postDao.findById(id);
+        model.addAttribute("post",postDao.findById(id));
+        model.addAttribute("user",userDao.findById(1L));
         return "posts/show";
     }
 
-    @GetMapping("/show")
-    public String postOne(){
-        Post post3 = new Post(3,"three","third post");
-        return "posts/show";
-    }
+//    @GetMapping("/show")
+//    public String postOne(){
+//        return "posts/show";
+//    }
 
     @GetMapping("/create")
     public String postForm(Model model){
@@ -52,16 +52,16 @@ public class PostController {
         return "redirect:index";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editForm(Model model, @PathVariable long id){
-        model.addAttribute("post", postDao.getReferenceById(id)); //gkuygjkuvjkhukukkuukukuoy
-        return "/posts/edit";
-    }
-
-    @PostMapping("/create")
-    public String submitEdit(@ModelAttribute Post post){
-        postDao.save(post);
-        return "redirect:index";
-    }
+//    @GetMapping("/edit/{id}")
+//    public String editForm(Model model, @PathVariable long id){
+//        model.addAttribute("post", postDao.getReferenceById(id)); //gkuygjkuvjkhukukkuukukuoy
+//        return "/posts/edit";
+//    }
+//
+//    @PostMapping("/create")
+//    public String submitEdit(@ModelAttribute Post post){
+//        postDao.save(post);
+//        return "redirect:index";
+//    }
 
 }
