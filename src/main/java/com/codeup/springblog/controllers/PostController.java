@@ -41,14 +41,14 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String postForm(){
+    public String postForm(Model model){
+        model.addAttribute("ad", new Post());
         return "/posts/create";
     }
 
     @PostMapping("/create")
-    public String submitPost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-        Post post = new Post(title, body);
-            postDao.save(post);
-            return "redirect:index";
+    public String submitPost(@ModelAttribute Post post){
+        postDao.save(post);
+        return "redirect:index";
     }
 }
