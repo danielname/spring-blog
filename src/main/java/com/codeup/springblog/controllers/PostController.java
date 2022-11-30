@@ -62,11 +62,10 @@ public class PostController {
         //might want to store the db call in a variable if there is more than one call.
         return "/posts/edit";
     }
-//
-//    @PostMapping("/create")
-//    public String submitEdit(@ModelAttribute Post post){
-//        postDao.save(post);
-//        return "redirect:index";
-//    }
 
+    @PostMapping("/{id}/edit")
+    public String submitEdit(@ModelAttribute Post post){
+        postDao.save(post);
+        return "redirect:index";
+    }
 }
