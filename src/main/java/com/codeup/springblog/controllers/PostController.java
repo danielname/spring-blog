@@ -52,7 +52,7 @@ public class PostController {
     @PostMapping("/create")
     public String submitPost(@ModelAttribute Post post){
         postDao.save(post);
-        EmailService.prepareAndSend(post,"","");
+        emailService.prepareAndSend(post,"","");
         return "redirect:index";
     }
 
