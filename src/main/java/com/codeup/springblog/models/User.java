@@ -13,6 +13,12 @@ public class User {
         this.password = password;
         this.posts = posts;
     }
+    public User(long id, String username, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String username, String email, String password, List<Post> posts) {
         this.username = username;
@@ -27,7 +33,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-        public long getId() {
+
+
+    public long getId() {
             return id;
         }
 
