@@ -16,7 +16,7 @@ public class EmailService {
     @Value("${spring.mail.from}")
     private String from;
 
-    public void prepareAndSend(Post post, String subject, String body){
+    public static void prepareAndSend(Post post, String subject, String body){
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom(from);
         msg.setTo(post.getUser().getEmail());
