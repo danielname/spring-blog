@@ -13,7 +13,7 @@
     Body:
     <input th:field="*{body}">
     <br>
-    <div style="display: none"></div>
+    <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">
     <input type="submit">
   </form>
 </body>
