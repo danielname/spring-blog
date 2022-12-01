@@ -48,7 +48,7 @@
 <!--footer-->
 <footer th:fragment="my-footer"></footer>
 <!--edit/post form-->
-<div th:fragment="crud-form">
+<form th:fragment="crud-form" th:method="post" th:object="${post}">
   Title:
   <input th:field="*{title}" th:value="${post.title}" />
   <br />
@@ -56,6 +56,18 @@
   <input th:field="*{body}" th:value="${post.body}" />
   <br />
   <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">
+  <input type="submit" />
+</form>
+
+<!--edit/post form-->
+<div th:fragment="crud-form">
+  Title:
+  <input th:field="*{title}" th:value="${post.title}" />
+  <br />
+  Body:
+  <input th:field="*{body}" th:value="${post.body}" />
+  <br />
+<!--  <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">-->
   <input type="submit" />
 </div>
 </body>

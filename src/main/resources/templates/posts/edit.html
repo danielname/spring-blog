@@ -6,8 +6,6 @@
 </head>
 <body>
     <h1>New Post</h1>
-    <form th:action="@{|/posts/${post.id}/edit|}" th:method="post" th:object="${post}">
-        <div th:replace="template :: crud-form"></div>
-    </form>
+    <form th:action="@{|/posts/${post.id}/edit|}" th:replace="template :: crud-form"></form>
 </body>
 </html>

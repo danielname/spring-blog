@@ -19,7 +19,7 @@ public class SecurityConfiguration {
                 .and()
                     .formLogin()
                     .loginPage("/log_in")
-                    .defaultSuccessUrl("/posts")
+                    .defaultSuccessUrl("/posts/create")
                 .and()
                     .logout()
                 .and()

@@ -72,4 +72,15 @@ public class PostController {
         postDao.save(post);
         return "redirect:index";
     }
+
+    @GetMapping("/test")
+    public String showTest(){
+        return "/posts/test";
+    }
+
+    @PostMapping("/test")
+    public String receiveTest(){
+        System.out.println("Hello");
+        return "redirect:/posts/test";
+    }
 }
