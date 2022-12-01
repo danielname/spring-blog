@@ -5,6 +5,7 @@
     <title>template</title>
 </head>
 <body>
+<!--nav-->
 <nav th:fragment="my-nav" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -41,7 +42,21 @@
     </div>
   </div>
 </nav>
+
+<!--header-->
 <header th:fragment="my-header"></header>
+<!--footer-->
 <footer th:fragment="my-footer"></footer>
+<!--edit/post form-->
+<div th:fragment="crud-form">
+  Title:
+  <input th:field="*{title}" th:value="${post.title}" />
+  <br />
+  Body:
+  <input th:field="*{body}" th:value="${post.body}" />
+  <br />
+  <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">
+  <input type="submit" />
+</div>
 </body>
 </html>

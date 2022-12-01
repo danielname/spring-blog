@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>New Post</title>
@@ -7,14 +7,7 @@
 <body>
   <h1>New Post</h1>
   <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-    Title:
-    <input th:field="*{title}">
-    <br>
-    Body:
-    <input th:field="*{body}">
-    <br>
-    <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">
-    <input type="submit">
+    <div th:replace="template :: crud-form"></div>
   </form>
 </body>
 </html>
