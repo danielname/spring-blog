@@ -1,10 +1,9 @@
 package com.codeup.springblog;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootConfiguration
+@SpringBootApplication
 public class SpringBlogApplication {
 
 	public static void main(String[] args) {
