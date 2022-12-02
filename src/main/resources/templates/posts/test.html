@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="template :: head"></head>
 <body>
 <form th:action="@{/posts/create}" method="post">
   <input type="hidden" value="1">
