@@ -5,7 +5,16 @@
     <title>Edit</title>
 </head>
 <body>
-    <h1>New Post</h1>
-    <form th:action="@{|/posts/${post.id}/edit|}" th:replace="template :: crud-form"></form>
+    <header th:replace="template :: my-header"></header>
+    <h1>Edit Post</h1>
+    <form th:action="@{|/posts/${post.id}/edit|}" th:method="post" th:object="${post}">
+        Title:
+        <input th:field="*{title}" th:value="${post.title}">
+        <br>
+        Body:
+        <input th:field="*{body}" th:value="${post.body}">
+        <br>
+        <input type="submit">
+    </form>
 </body>
 </html>
