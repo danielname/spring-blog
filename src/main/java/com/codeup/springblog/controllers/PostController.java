@@ -47,14 +47,14 @@ public class PostController {
 
     @GetMapping("/create")
     public String postForm(Model model){
-        User activeUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("activeUserId", activeUser.getId());
         model.addAttribute("post", new Post());
         return "/posts/create";
     }
 
     @PostMapping("/create")
     public String submitPost(@ModelAttribute Post post){
+        long activeUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        post.setUser(userDao.findById(activeUserId));
         postDao.save(post);
 //        emailService.prepareAndSend(post,"","");
         return "redirect:index";

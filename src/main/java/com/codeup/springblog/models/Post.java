@@ -62,11 +62,16 @@ public class Post {
 
 
 
+
     @ManyToOne
 //    @JoinColumn(name = "user_id")  <--this is useful for when we are using the <TABLE_NAME>_id naming convention
     private User user;
 
         public User getUser() {
             return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
         }
 }
