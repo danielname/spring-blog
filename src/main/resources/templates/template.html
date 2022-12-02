@@ -44,31 +44,14 @@
 </nav>
 
 <!--header-->
-<header th:fragment="my-header"></header>
+<header th:fragment="my-header" class="mb-3">
+    <h3 class="ms-2">yourSTORY</h3>
+<!--    need a dropdown with links to main feed (index order by id desc), create new, profiles (with links to users), my profile (which shows posts of one user), and logout-->
+</header>
+
+
+
 <!--footer-->
 <footer th:fragment="my-footer"></footer>
-<!--edit/post form-->
-<form th:fragment="crud-form" th:method="post" th:object="${post}">
-  Title:
-  <input th:field="*{title}" th:value="${post.title}" />
-  <br />
-  Body:
-  <input th:field="*{body}" th:value="${post.body}" />
-  <br />
-  <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">
-  <input type="submit" />
-</form>
-
-<!--edit/post form-->
-<div th:fragment="crud-form">
-  Title:
-  <input th:field="*{title}" th:value="${post.title}" />
-  <br />
-  Body:
-  <input th:field="*{body}" th:value="${post.body}" />
-  <br />
-<!--  <input style="display: none" th:field="*{user_id}" th:value="${activeUserId}">-->
-  <input type="submit" />
-</div>
 </body>
 </html>
