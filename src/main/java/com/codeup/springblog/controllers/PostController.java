@@ -56,7 +56,7 @@ public class PostController {
         long activeUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
         post.setUser(userDao.findById(activeUserId));
         postDao.save(post);
-        emailService.prepareAndSend(post,"",""); //fdksfbovasdbgvidsabvfdasnkpvnafskdvkpjsafdnk
+        emailService.prepareAndSend(post,post.getTitle(),post.getBody());
         return "redirect:index";
     }
 
