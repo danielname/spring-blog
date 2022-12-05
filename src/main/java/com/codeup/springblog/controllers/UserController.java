@@ -34,4 +34,10 @@ public class UserController {
         userDao.save(user);
         return "redirect:/posts/create";
     }
+
+    @GetMapping("/posts/profile_list")
+    public String allPosts(Model model) {
+        model.addAttribute("allUsers", userDao.findAll());
+        return "posts/profile_list";
+    }
 }

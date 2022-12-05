@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="template :: head"></head>
+<body>
+<header th:replace="template :: my-header"></header>
+<h1>Select a user:</h1>
+<ul th:each="user : ${allUsers}">
+  <li>
+    <h2 th:text="${user.username}"></h2>
+    <!-- make a button that links to user profile -->
+  </li>
+</ul>
+<footer th:replace="template :: my-footer"></footer>
+</body>
+</html>
