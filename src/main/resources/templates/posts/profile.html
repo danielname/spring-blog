@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="template :: head"></head>
+<body>
+<header th:replace="template :: my-header"></header>
+<h1 th:text="${user}'s posts:"></h1>
+<ul th:each="post : ${allPosts}">
+  <li>
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.body}"></p>
+  </li>
+</ul>
+<footer th:replace="template :: my-footer"></footer>
+</body>
+</html>
