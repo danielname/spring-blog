@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -36,8 +37,16 @@ public class UserController {
     }
 
     @GetMapping("/posts/profile_list")
-    public String allPosts(Model model) {
+    public String profileList(Model model) {
         model.addAttribute("allUsers", userDao.findAll());
         return "posts/profile_list";
     }
+
+    @GetMapping("/posts/profile/{id}")
+    public String userProfile(Model model, @PathVariable long id) {
+        model.addAttribute("allPosts",postDao.findAll());
+        model.addAttribute("user", userDao.findById(id));
+        return "posts/profile";
+    }
 }
+

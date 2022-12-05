@@ -3,9 +3,9 @@
 <head th:replace="template :: head"></head>
 <body>
 <header th:replace="template :: my-header"></header>
-<h1 th:text="${user}'s posts:"></h1>
+<h1 th:text="${user}"></h1>
 <ul th:each="post : ${allPosts}">
-  <li>
+  <li th:if="${user.id} == ${post.user.id}">
     <h2 th:text="${post.title}"></h2>
     <p th:text="${post.body}"></p>
   </li>
