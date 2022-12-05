@@ -47,6 +47,11 @@ public class PostController {
 
     @GetMapping("/create")
     public String postForm(Model model){
+        long currentUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        ).getId();
+        if (currentUserId == 0) {
+            return "redirect:/login";
+        }
         model.addAttribute("post", new Post());
         return "/posts/create";
     }
@@ -62,6 +67,15 @@ public class PostController {
 
     @GetMapping("/{id}/edit")
     public String editForm(Model model, @PathVariable long id){
+        long currentUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        ).getId();
+        if (currentUserId == 0) {
+            return "redirect:/login";
+        }
+        Post post = postDao.findById(id);
+        if (post.getUser().getId() != currentUserId){;
+            return "redirect:/posts";
+        }
         model.addAttribute("post", postDao.findById(id));
         //might want to store the db call in a variable if there is more than one call.
         return "/posts/edit";
