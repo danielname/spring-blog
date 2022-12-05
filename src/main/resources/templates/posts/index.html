@@ -3,9 +3,6 @@
 <head th:replace="template :: head"></head>
 <body>
     <header th:replace="template :: my-header"></header>
-    <form th:action="@{/logout}" th:method="post">
-        <button>Logout</button>
-    </form>
     <h1>Your Feed:</h1>
     <ul th:each="post : ${allPosts}">
         <li>
