@@ -17,25 +17,35 @@
 </header>
 
 
-<!--header once logged in-->
+<!--&lt;!&ndash;header once logged in&ndash;&gt;-->
+<!--<header th:fragment="my-header" class="mb-3 nav">-->
+<!--    <h3 class="ms-2">yourSTORY</h3>-->
+<!--        <div class="nav-item dropdown">-->
+<!--            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menu</a>-->
+<!--            <ul class="dropdown-menu">-->
+<!--                <li><a class="dropdown-item" th:href="@{/posts/index}">Home</a></li>-->
+<!--                <li><a class="dropdown-item" th:href="@{/posts/create}">New Post</a></li>-->
+<!--                <li><a class="dropdown-item" th:href="@{/posts/profile}">My Profile</a></li>-->
+<!--                <li><a class="dropdown-item" th:href="@{/posts/profile_list}">User Profiles</a></li>-->
+<!--                <li><a class="dropdown-item" th:href="@{/posts/settings}">Settings</a></li>-->
+<!--                <li><hr class="dropdown-divider"></li>-->
+<!--                <li><form th:action="@{/logout}" th:method="post"><button>Logout</button></form></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    &lt;!&ndash;    need a dropdown with links to main feed (index order by id desc), create new, profiles (with links to users), my profile (which shows posts of one user), and logout&ndash;&gt;-->
+<!--</header>-->
+
+
 <header th:fragment="my-header" class="mb-3">
     <h3 class="ms-2">yourSTORY</h3>
-    <nav class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">Menu
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-            <a th:href="@{/posts/index}">Home</a>
-            <a th:href="@{/posts/create}">New Post</a>
-            <a th:href="@{/posts/profile}">My Profile</a>
-            <a th:href="@{/posts/profile_list}">User Profiles</a>
-            <a th:href="@{/posts/settings}">Settings</a>
-            <form th:action="@{/logout}" th:method="post"><button>Logout</button></form>
-        </div>
-    </nav>
+    <a th:href="@{/posts/index}">Home</a></li>
+    <a th:href="@{/posts/create}">New Post</a></li>
+    <a th:href="@{/posts/profile}">My Profile</a></li>
+    <a th:href="@{/posts/profile_list}">User Profiles</a></li>
+    <a th:href="@{/posts/settings}">Settings</a></li>
+    <form th:action="@{/logout}" th:method="post"><button>Logout</button></form></li>
     <!--    need a dropdown with links to main feed (index order by id desc), create new, profiles (with links to users), my profile (which shows posts of one user), and logout-->
 </header>
-
 
 
 <!--footer-->
