@@ -21,7 +21,20 @@
 <!--header once logged in-->
 <header th:fragment="my-header" class="mb-3">
     <h3 class="ms-2">yourSTORY</h3>
-<!--    need a dropdown with links to main feed (index order by id desc), create new, profiles (with links to users), my profile (which shows posts of one user), and logout-->
+    <nav class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Menu
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+            <a th:href="@{/posts/index}">Home</a>
+            <a th:href="@{/posts/create}">New Post</a>
+            <a th:href="@{/posts/profile}">My Profile</a>
+            <a th:href="@{/posts/profile_list}">User Profiles</a>
+            <a th:href="@{/posts/settings}">Settings</a>
+            <form th:action="@{/logout}" th:method="post"><button>Logout</button></form>
+        </div>
+    </nav>
+    <!--    need a dropdown with links to main feed (index order by id desc), create new, profiles (with links to users), my profile (which shows posts of one user), and logout-->
 </header>
 
 
