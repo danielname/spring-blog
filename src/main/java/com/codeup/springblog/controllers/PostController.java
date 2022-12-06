@@ -77,8 +77,10 @@ public class PostController {
 
     @PostMapping("/{id}/edit")
     public String submitEdit(@ModelAttribute Post post){
+        long activeUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        post.setUser(userDao.findById(activeUserId));
         postDao.save(post);
-        return "redirect:index";
+        return "redirect:/posts/index";
     }
 
     @GetMapping("/test")
