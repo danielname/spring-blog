@@ -8,7 +8,7 @@
         <li>
             <h2 th:text="${post.title}"></h2>
             <p th:text="${post.body}"></p>
-            <button th:if="${post.user.id} == ${activeUser}">Edit</button>
+            <a th:if="${post.user.id} == ${activeUser}" th:href="@{|/posts/${post.id}/edit|}"><input type="button" value="Edit"></a>
         </li>
     </ul>
     <footer th:replace="template :: my-footer"></footer>
