@@ -6,7 +6,7 @@
 <h1>Select a user:</h1>
 <ul th:each="user : ${allUsers}">
   <li>
-    <h2 th:text="${user.username}"></h2>
+    <a th:href="@{|/posts/profile/${user.id}|}" th:text="${user.username}"></a>
     <!-- make a button that links to user profile -->
   </li>
 </ul>
