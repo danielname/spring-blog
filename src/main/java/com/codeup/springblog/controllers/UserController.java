@@ -3,6 +3,7 @@ package com.codeup.springblog.controllers;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,8 @@ public class UserController {
     public String userProfile(Model model, @PathVariable long id) {
         model.addAttribute("allPosts",postDao.findAll());
         model.addAttribute("user", userDao.findById(id));
+        model.addAttribute("activeUser", ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        ).getId());
         return "posts/profile";
     }
 }
