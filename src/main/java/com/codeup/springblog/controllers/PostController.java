@@ -26,6 +26,8 @@ public class PostController {
     @GetMapping("/index")
     public String allPosts(Model model){
         model.addAttribute("allPosts",postDao.findAll());
+        model.addAttribute("activeUser", ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        ).getId());
         return "posts/index";
     }
 
