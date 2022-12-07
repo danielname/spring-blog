@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="template :: head"></head>
+<body>
+    <header th:replace="template :: my-header"></header>
+    Title:
+    <input value="Welcome to Your Story">
+    <br>
+    Body:
+    <input value="Where you can blog your story!">
+    <br>
+    <a th:href="@{/posts/index}"><input type="button" value="ENTER THE SITE!"></a>
+<footer th:replace="template :: my-footer"></footer>
+</body>
+</html>

@@ -23,6 +23,11 @@ public class PostController {
         this.emailService = emailService;
     }
 
+    @GetMapping
+    public String landing (){
+        return "posts/welcome";
+    }
+
     @GetMapping("/index")
     public String allPosts(Model model){
         model.addAttribute("allPosts",postDao.findAll());
